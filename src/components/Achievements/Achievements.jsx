@@ -1,5 +1,5 @@
 import achievements from "../../data/achievements";
-import "./achievements.css";
+import "./Achievements.css";
 import AchievementCard from "./AchievementCard";
 
 function Achievements() {
@@ -25,5 +25,3 @@ function Achievements() {
 }
 
 export default Achievements;
-
-

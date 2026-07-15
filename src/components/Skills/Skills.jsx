@@ -1,5 +1,5 @@
 import skills from "../../data/skills";
-import "./skills.css";
+import "./Skills.css";
 
 function Skills() {
   return (
@@ -20,7 +20,7 @@ function Skills() {
             </ul>
           </div>
         ))}
-      </div> 
+      </div>
     </section>
   );
 }

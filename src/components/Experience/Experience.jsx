@@ -1,5 +1,5 @@
 import experiences from "../../data/experience";
-import "./experience.css";
+import "./Experience.css";
 import ExperienceCard from "./ExperienceCard";
 
 function Experience() {

@@ -1,5 +1,5 @@
 import leadership from "../../data/leadership";
-import "./leadership.css";
+import "./Leadership.css";
 import LeadershipCard from "./LeadershipCard";
 
 function Leadership() {
