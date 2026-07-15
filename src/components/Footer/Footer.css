@@ -1,0 +1,17 @@
+#footer {
+    background-color: #0a0a0a;
+    color: #9ca3af;
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #2d2d44;
+}
+
+#footer a {
+    color: #a78bfa;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+#footer a:hover {
+    color: #fff;
+}
