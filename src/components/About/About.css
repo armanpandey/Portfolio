@@ -62,3 +62,23 @@
 .stat-card:hover {
     border-color: #a78bfa;
 }   
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+
+    .about-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+}
