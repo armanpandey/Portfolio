@@ -123,3 +123,29 @@
         min-width: 100%;
     }
 }
+.success-msg {
+    background-color: #1a2e1a;
+    color: #4ade80;
+    border: 1px solid #4ade80;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.error-msg {
+    background-color: #2e1a1a;
+    color: #f87171;
+    border: 1px solid #f87171;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.field-error {
+    color: #f87171;
+    font-size: 0.85rem;
+    margin-top: -0.8rem;
+    display: block;
+}

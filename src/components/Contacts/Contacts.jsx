@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contacts.css";
 
 function Contacts() {
@@ -8,23 +9,71 @@ function Contacts() {
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState(""); // "success" | "error" | ""
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+    // Error clear karo jab user type kare
+    setErrors({
+      ...errors,
+      [e.target.name]: "",
+    });
+  };
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    const validationErrors = validate();
 
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    emailjs
+      .send(
+        "service_3nqng42",
+        "template_qzjzdfl",
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        "xOsEwC6voBxuyUVGT",
+      )
+      .then(() => {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+        setErrors({});
+      })
+      .catch(() => {
+        setStatus("error");
+      });
   };
 
   return (
@@ -57,6 +106,18 @@ function Contacts() {
       </div>
 
       <div className="contact-form">
+        {status === "success" && (
+          <div className="success-msg">
+            Message sent successfully! I'll get back to you soon.
+          </div>
+        )}
+
+        {status === "error" && (
+          <div className="error-msg">
+            Something went wrong. Please try again.
+          </div>
+        )}
+
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -64,8 +125,8 @@ function Contacts() {
             placeholder="Your Name"
             value={formData.name}
             onChange={handleChange}
-            required
           />
+          {errors.name && <span className="field-error">{errors.name}</span>}
 
           <input
             type="email"
@@ -73,8 +134,8 @@ function Contacts() {
             placeholder="Your Email"
             value={formData.email}
             onChange={handleChange}
-            required
           />
+          {errors.email && <span className="field-error">{errors.email}</span>}
 
           <textarea
             name="message"
@@ -82,8 +143,10 @@ function Contacts() {
             rows="6"
             value={formData.message}
             onChange={handleChange}
-            required
           />
+          {errors.message && (
+            <span className="field-error">{errors.message}</span>
+          )}
 
           <button type="submit">Send Message</button>
         </form>
