@@ -1,12 +1,28 @@
 const projects = [
   {
     id: 1,
-    title: "AURUM STAY",
+    title: "Aurum Stay",
+    subtitle: "Hotel Booking Website",
     description:
       "A hotel room booking web application where users can browse and filter rooms based on preferences and budget, designed for long-duration stays.",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    fullDescription:
+      "Aurum Stay is a frontend hotel booking website developed as part of my App Development Lab project. Built using HTML5, CSS3, and Vanilla JavaScript without any frontend framework. Features multiple pages including Home, Rooms, Booking, About, and Contact. The booking page includes a dynamic cost calculator based on check-in/check-out dates and room type.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "DOM Manipulation"],
     github: "https://github.com/armanpandey/Aurum_Stay_Hotel_Booking_Website",
     live: "",
+    images: [
+      "/src/assets/stay/stay-home.png",
+      "/src/assets/stay/stay-rooms.png",  
+      "/src/assets/stay/stay-booking.png",
+      "/src/assets/stay/stay-about.png",
+    ],
+    features: [
+      "Dynamic cost calculator based on dates and room type",
+      "Room filtering and browsing",
+      "Responsive navigation with hamburger menu",
+      "Client-side form validation",
+      "Multiple pages — Home, Rooms, Booking, About, Contact",
+    ],
   },
   {
     id: 2,

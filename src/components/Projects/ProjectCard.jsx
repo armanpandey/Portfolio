@@ -1,6 +1,13 @@
-function ProjectCard({ title, description, technologies, github, live }) {
+import { useNavigate } from "react-router-dom";
+
+function ProjectCard({ id, title, description, technologies, github, live }) {
+  const navigate = useNavigate();
   return (
-    <div className="project-card">
+    <div
+      className="project-card"
+      onClick={() => navigate(`/projects/${id}`)}
+      style={{ cursor: "pointer" }}
+    >
       <h3>{title}</h3>
       <p>{description}</p>
       <div className="technologies">
