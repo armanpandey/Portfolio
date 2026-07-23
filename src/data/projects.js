@@ -11,10 +11,10 @@ const projects = [
     github: "https://github.com/armanpandey/Aurum_Stay_Hotel_Booking_Website",
     live: "",
     images: [
-      "/src/assets/stay/stay-home.png",
-      "/src/assets/stay/stay-rooms.png",  
-      "/src/assets/stay/stay-booking.png",
-      "/src/assets/stay/stay-about.png",
+      "/stay/stay-home.png",
+      "/stay/stay-rooms.png",
+      "/stay/stay-booking.png",
+      "/stay/stay-about.png",
     ],
     features: [
       "Dynamic cost calculator based on dates and room type",
